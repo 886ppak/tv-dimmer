@@ -32,6 +32,19 @@ Uses Android build-tools 34 and a JDK 17 (D8 does not run on newer JDKs):
 
 5. Open **Dimmer** on the TV with the remote. Open it again after each restart so the control server starts.
 
+## One-step TV setup script
+
+`install-tv.sh` installs the Dimmer and the clean launcher, sets the launcher as home, and disables a
+short safe list of Google and TV extras. It runs on the TV itself.
+
+1. Copy `dimmer.apk` and `tvhome.apk` (both in the v1.0 release) to the TV's `Download` folder.
+2. Copy `install-tv.sh` to the TV's `Download` folder too.
+3. Run it from BugJaeger's shell on the TV, or from a computer with ADB:
+
+       sh /sdcard/Download/install-tv.sh
+
+Everything it disables can be turned back on with `pm enable <package>`. It never touches the Wi-Fi setup package.
+
 ## Install on a TV
 
     adb install -r dimmer.apk
